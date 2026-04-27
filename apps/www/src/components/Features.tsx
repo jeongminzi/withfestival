@@ -5,30 +5,30 @@ import { motion } from "framer-motion";
 const FEATURES = [
   {
     id: "qr-order",
-    title: "QR 메뉴판으로 주문 관리",
+    title: "QR 메뉴판으로 주문을 받아요",
     description:
-      "테이블에 비치된 QR코드 하나로 방문객이 직접 메뉴를 확인하고 주문해요. 바쁜 축제 현장에서 주문 누락과 대기 시간을 확 줄여줍니다.",
+      "테이블에 둔 QR코드 하나로 방문객이 직접 메뉴를 보고 주문해요. 바쁜 축제 현장에서 주문이 빠지는 일도, 기다리는 시간도 확 줄어들어요.",
     accent: "bg-white",
   },
   {
     id: "digital-reservation",
-    title: "손쉬운 디지털 예약 관리",
+    title: "디지털로 웨이팅을 관리해요",
     description:
-      "번거로운 종이 명부 대신 스마트폰으로 웨이팅을 관리하세요. 입장 순서가 되면 고객의 메시지로 바로 알려드려요!",
+      "번거로운 종이 명부 대신 스마트폰으로 웨이팅을 관리해요. 입장 순서가 되면 고객에게 메시지로 바로 알려요.",
     accent: "bg-white",
   },
   {
     id: "love-alarm",
     title: "좋아하면 울리는 기능",
     description:
-      "마음에 드는 테이블에 호감을 표현하거나, 합석을 제안해 보세요. 캠퍼스 축제만의 두근거리는 낭만과 재미를 더해줄거에요.",
+      "마음에 드는 테이블에 호감을 표현하고, 합석도 제안해요. 캠퍼스 축제만의 두근거리는 낭만과 재미를 더해줘요.",
     accent: "bg-white",
   },
   {
     id: "ai-management",
-    title: "AI 자동 메뉴판 & 부스 관리",
+    title: "AI가 메뉴판과 부스 세팅을 도와줘요",
     description:
-      "판매할 메뉴 이름만 입력하면 AI가 먹음직스러운 설명과 메뉴판을 자동으로 완성해 줘요. 복잡한 부스 세팅도 1분이면 끝납니다.",
+      "판매할 메뉴 이름만 입력하면 AI가 먹음직스러운 설명과 메뉴판을 자동으로 만들어줘요. 복잡한 부스 세팅도 1분이면 끝나요.",
     accent: "bg-white",
   },
 ];
@@ -44,7 +44,7 @@ export default function FeaturePromotion() {
             <span className="text-[#FFBF0B]">딱이에요.</span>
           </h2>
           <p className="firsty-lead mt-5 max-w-2xl">
-            축제랑은 부스 운영의 모든 순간을 더 가볍고 더 즐겁게 만들어드려요.
+            부스 운영의 모든 순간을 더 가볍고 즐겁게 만들어요.
           </p>
         </div>
 

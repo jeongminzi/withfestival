@@ -33,9 +33,9 @@ export default function Contact() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="firsty-display"
             >
-              성공적인 축제를 위한 첫걸음,
+              성공적인 축제의 첫걸음,
               <br />
-              <span className="text-[#FFBF0B]">축제랑이 함께합니다.</span>
+              <span className="text-[#FFBF0B]">축제랑이 함께해요.</span>
             </motion.h1>
 
             <motion.p
@@ -44,9 +44,9 @@ export default function Contact() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="firsty-lead mt-5 max-w-xl"
             >
-              솔루션 도입 견적부터 맞춤형 기능 개발, 제휴 제안까지
+              도입 견적부터 맞춤형 기능 개발, 제휴 제안까지
               <br className="hidden md:block" />
-              궁금한 점을 남겨주시면 담당자가 빠르게 안내해 드리겠습니다.
+              궁금한 점을 보내주면 담당자가 빠르게 답해요.
             </motion.p>
           </motion.div>
 
@@ -90,7 +90,7 @@ export default function Contact() {
                     copied ? "border-[#11153F] bg-[#11153F] text-white" : ""
                   }`}
                 >
-                  {copied ? "복사 완료" : "이메일 주소 복사"}
+                  {copied ? "복사했어요" : "이메일 주소 복사"}
                 </button>
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function Contact() {
                 응답 시간
               </p>
               <p className="mt-2 font-medium text-[#11153F]">
-                평균 영업일 기준 1~2일 이내
+                영업일 기준 1~2일 안에 답해요.
               </p>
             </div>
             <div className="rounded-2xl border border-gray-100 bg-gray-100 p-5">
@@ -117,7 +117,7 @@ export default function Contact() {
                 꼭 알려주세요
               </p>
               <p className="mt-2 font-medium text-[#11153F]">
-                소속(학교/학과)과 연락처를 함께 남겨주세요.
+                소속(학교·학과)과 연락처를 같이 보내주세요.
               </p>
             </div>
           </motion.div>

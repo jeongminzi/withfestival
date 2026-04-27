@@ -32,7 +32,7 @@ export default function ContactCTA() {
           >
             성공적인 축제의 시작,
             <br />
-            <span className="text-[#FFD43A]">축제랑</span>과 함께 완성하세요.
+            <span className="text-[#FFD43A]">축제랑</span>과 함께 만들어요.
           </motion.h2>
 
           <motion.p
@@ -44,7 +44,7 @@ export default function ContactCTA() {
           >
             도입 견적부터 맞춤형 기능 개발 상담까지.
             <br className="hidden md:block" />
-            기획단의 무거운 짐을 덜고 추억을 만들어드립니다.
+            기획단의 무거운 짐을 덜고 추억을 함께 만들어요.
           </motion.p>
 
           <motion.div

@@ -97,7 +97,7 @@ export default function Header() {
                 isMobileMenuOpen ? "text-white" : "text-[#11153F]"
               }`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="메뉴 열기"
+              aria-label="메뉴 열기·닫기"
             >
               <svg
                 width="22"

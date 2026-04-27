@@ -112,8 +112,7 @@ export default function FestivalStatusBoard() {
             있어요
           </h1>
           <p className="firsty-lead mt-5 max-w-xl">
-            축제랑과 함께 진행 중이거나 앞으로 만나볼 캠퍼스 축제를 한 눈에
-            확인해 보세요.
+            축제랑과 함께하는 캠퍼스 축제를 한눈에 확인해요.
           </p>
         </div>
 

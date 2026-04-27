@@ -53,7 +53,7 @@ export default function Footer() {
             <p className="max-w-sm break-keep text-sm leading-relaxed text-gray-500">
               가장 스마트한 축제 운영 솔루션, 축제랑.
               <br />
-              모두가 온전히 즐길 수 있는 진짜 축제를 만듭니다.
+              모두가 온전히 즐길 수 있는 축제를 만들어요.
             </p>
             <div className="flex items-center gap-2">
               {SOCIAL_LINKS.map((social) => (
