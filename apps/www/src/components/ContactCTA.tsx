@@ -6,7 +6,7 @@ export default function ContactCTA() {
   return (
     <section
       id="contact-cta"
-      className="firsty-section relative w-full overflow-hidden bg-[#F8F9FB]"
+      className="firsty-section relative w-full overflow-hidden bg-white"
     >
       <div className="firsty-container">
         <motion.div

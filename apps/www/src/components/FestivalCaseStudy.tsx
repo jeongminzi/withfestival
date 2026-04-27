@@ -90,7 +90,7 @@ export default function FestivalCaseStudy() {
                     {item.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center rounded-full border border-gray-100 bg-[#F8F9FB] px-3 py-1.5 text-xs font-bold text-gray-600"
+                        className="inline-flex items-center rounded-full border border-gray-100 bg-gray-100 px-3 py-1.5 text-xs font-bold text-gray-600"
                       >
                         # {tag}
                       </span>

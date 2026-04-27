@@ -15,14 +15,14 @@ const FEATURES = [
     title: "손쉬운 디지털 예약 관리",
     description:
       "번거로운 종이 명부 대신 스마트폰으로 웨이팅을 관리하세요. 입장 순서가 되면 고객의 메시지로 바로 알려드려요!",
-    accent: "bg-[#FFF9E6]",
+    accent: "bg-white",
   },
   {
     id: "love-alarm",
     title: "좋아하면 울리는 기능",
     description:
       "마음에 드는 테이블에 호감을 표현하거나, 합석을 제안해 보세요. 캠퍼스 축제만의 두근거리는 낭만과 재미를 더해줄거에요.",
-    accent: "bg-[#F8F9FB]",
+    accent: "bg-white",
   },
   {
     id: "ai-management",
@@ -35,7 +35,7 @@ const FEATURES = [
 
 export default function FeaturePromotion() {
   return (
-    <section className="firsty-section relative w-full overflow-hidden bg-[#F8F9FB]">
+    <section className="firsty-section relative w-full overflow-hidden bg-white">
       <div className="firsty-container">
         <div className="mb-14 flex flex-col items-start md:mb-20 md:items-center md:text-center">
           <h2 className="firsty-display max-w-3xl">

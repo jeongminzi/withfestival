@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "축제랑 | 축제는 당연히 !",
@@ -15,10 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className="bg-gray-100 scroll-smooth">
-      <body
-        className={`${inter.className} bg-gray-100 text-gray-1000 antialiased`}
-      >
+    <html lang="ko" className="scroll-smooth bg-white">
+      <body className="bg-white text-[#11153F] antialiased font-pretendard">
         {children}
       </body>
     </html>

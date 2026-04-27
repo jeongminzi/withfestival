@@ -56,9 +56,9 @@ export default function FrequentAskedQuestions() {
           <div className="firsty-card divide-y divide-gray-100 overflow-hidden">
             {faqs.map((faq, index) => (
               <details key={index} className="group">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 transition-colors hover:bg-[#F8F9FB] md:px-8 md:py-6">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 transition-colors hover:bg-gray-100 md:px-8 md:py-6">
                   <div className="flex min-w-0 items-start gap-4">
-                    <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#F8F9FB] font-mono text-xs font-bold text-gray-400 transition-colors group-open:bg-[#FFD43A] group-open:text-[#11153F]">
+                    <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-100 font-mono text-xs font-bold text-gray-400 transition-colors group-open:bg-[#FFD43A] group-open:text-[#11153F]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="break-keep text-base font-bold leading-snug text-[#11153F] md:text-lg">
@@ -96,7 +96,7 @@ export default function FrequentAskedQuestions() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="mt-10 rounded-3xl border border-[#FFD43A]/30 bg-[#FFF9E6] p-6 md:p-7"
+            className="mt-10 rounded-3xl border border-gray-200 bg-white p-6 md:p-7"
           >
             <p className="break-keep text-sm leading-relaxed text-[#11153F]/80">
               <span className="mr-1 text-sm font-bold text-[#FFBF0B]">

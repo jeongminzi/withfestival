@@ -126,7 +126,7 @@ export default function BoothRankingPage() {
                 {booth.university} · {booth.affiliation}
               </p>
 
-              <div className="mt-5 flex w-full items-center justify-center rounded-2xl bg-[#F8F9FB] px-4 py-3">
+              <div className="mt-5 flex w-full items-center justify-center rounded-2xl bg-gray-100 px-4 py-3">
                 <span className="font-mono text-base font-bold text-[#11153F] md:text-lg">
                   {formatNumber(booth.revenue)}
                 </span>
@@ -155,10 +155,10 @@ export default function BoothRankingPage() {
             {others.map((booth) => (
               <div
                 key={booth.name}
-                className="flex items-center justify-between gap-4 rounded-2xl px-4 py-4 transition-colors hover:bg-[#F8F9FB] md:px-5"
+                className="flex items-center justify-between gap-4 rounded-2xl px-4 py-4 transition-colors hover:bg-gray-100 md:px-5"
               >
                 <div className="flex min-w-0 items-center gap-4">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F8F9FB] text-sm font-black text-gray-400">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gray-100 text-sm font-black text-gray-400">
                     {booth.rank}
                   </div>
 

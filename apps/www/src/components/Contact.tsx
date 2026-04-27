@@ -104,7 +104,7 @@ export default function Contact() {
             transition={{ delay: 0.5 }}
             className="mt-10 grid grid-cols-1 gap-3 text-center text-sm text-gray-500 md:grid-cols-2 md:text-left"
           >
-            <div className="rounded-2xl border border-gray-100 bg-[#F8F9FB] p-5">
+            <div className="rounded-2xl border border-gray-100 bg-gray-100 p-5">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-400">
                 응답 시간
               </p>
@@ -112,7 +112,7 @@ export default function Contact() {
                 평균 영업일 기준 1~2일 이내
               </p>
             </div>
-            <div className="rounded-2xl border border-gray-100 bg-[#F8F9FB] p-5">
+            <div className="rounded-2xl border border-gray-100 bg-gray-100 p-5">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-400">
                 꼭 알려주세요
               </p>
