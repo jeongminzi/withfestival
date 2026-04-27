@@ -62,85 +62,135 @@ const RANKING_DATA = [
   },
 ];
 
-const RANK_BADGE_TONE = [
-  "bg-[#FFD43A] text-[#11153F]",
-  "bg-[#11153F] text-white",
-  "bg-gray-100 text-gray-600",
-];
-
-function formatNumber(value: string) {
-  return value;
-}
-
 export default function BoothRankingPage() {
-  const topThree = RANKING_DATA.slice(0, 3);
+  const champion = RANKING_DATA[0];
+  const runners = RANKING_DATA.slice(1, 3);
   const others = RANKING_DATA.slice(3);
 
   return (
     <main className="relative w-full overflow-hidden bg-white pt-32 pb-24 md:pt-40 md:pb-32">
       <div className="firsty-container relative px-5 md:px-8">
-        <div className="mb-14 flex flex-col items-center text-center md:mb-20">
+        <div className="mb-14 flex flex-col items-start gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
           <h1 className="firsty-display max-w-3xl">
             지금 가장 핫한
             <br />
             <span className="text-[#FFBF0B]">대학 부스 랭킹</span>
           </h1>
-          <p className="firsty-lead mt-5 max-w-xl">
+          <p className="firsty-lead max-w-sm md:text-right">
             실시간 누적 매출로 매기는 랭킹
           </p>
         </div>
 
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
-          {topThree.map((booth, index) => (
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
+          {champion && (
             <motion.div
-              key={booth.name}
-              initial={{ opacity: 0, y: 32 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + index * 0.08, type: "spring" }}
-              className={`firsty-card relative flex flex-col items-center p-6 text-center md:p-8 ${
-                booth.rank === 1
-                  ? "md:-translate-y-4 border-[#FFD43A]/40 shadow-card-hover"
-                  : ""
-              }`}
+              transition={{ duration: 0.6 }}
+              className="firsty-card relative overflow-hidden bg-[#11153F] p-8 md:p-10 lg:col-span-7"
             >
-              <span
-                className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-bold ${RANK_BADGE_TONE[index]}`}
-              >
-                {booth.rank}위
-              </span>
+              <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[#FFD43A]/30 blur-[100px]" />
+              <div className="pointer-events-none absolute -bottom-20 -right-10 h-72 w-72 rounded-full bg-[#FFD43A]/15 blur-[120px]" />
 
-              <div className="relative mt-3 mb-4 h-16 w-16 overflow-hidden rounded-full border border-gray-100 bg-gray-50 shadow-pill md:h-20 md:w-20">
-                <Image
-                  src={booth.logoUrl}
-                  alt={booth.university}
-                  fill
-                  className="object-cover"
-                  sizes="80px"
-                />
-              </div>
-
-              <h3 className="text-lg font-bold tracking-tight text-[#11153F] md:text-xl">
-                {booth.name}
-              </h3>
-              <p className="mt-1.5 break-keep text-sm text-gray-500">
-                {booth.university} · {booth.affiliation}
-              </p>
-
-              <div className="mt-5 flex w-full items-center justify-center rounded-2xl bg-gray-100 px-4 py-3">
-                <span className="font-mono text-base font-bold text-[#11153F] md:text-lg">
-                  {formatNumber(booth.revenue)}
+              <div className="relative">
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#FFD43A] px-3 py-1 text-xs font-bold text-[#11153F]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#11153F]" />
+                  1위
                 </span>
-                <span className="ml-1 text-sm font-medium text-gray-500">
-                  원
-                </span>
+                <div className="mt-8 flex items-center gap-4">
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border border-white/20 bg-white/10">
+                    <Image
+                      src={champion.logoUrl}
+                      alt={champion.university}
+                      fill
+                      className="object-cover"
+                      sizes="64px"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/60">
+                      {champion.university}
+                    </p>
+                    <p className="text-sm font-medium text-white/80">
+                      {champion.affiliation}
+                    </p>
+                  </div>
+                </div>
+                <h3 className="mt-6 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
+                  {champion.name}
+                </h3>
+                <div className="mt-10 flex items-end justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/60">
+                      누적 매출
+                    </p>
+                    <p className="mt-2 font-mono text-3xl font-bold text-[#FFD43A] md:text-4xl">
+                      {champion.revenue}
+                      <span className="ml-1 text-base font-medium text-white/70">
+                        원
+                      </span>
+                    </p>
+                  </div>
+                </div>
               </div>
             </motion.div>
-          ))}
+          )}
+
+          <div className="grid grid-cols-1 gap-5 lg:col-span-5">
+            {runners.map((booth, index) => (
+              <motion.div
+                key={booth.name}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+                className="firsty-card relative overflow-hidden p-6 md:p-7"
+              >
+                <span
+                  className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-bold ${
+                    index === 0
+                      ? "bg-[#11153F] text-white"
+                      : "bg-gray-100 text-gray-600"
+                  }`}
+                >
+                  {booth.rank}위
+                </span>
+                <div className="mt-5 flex items-center gap-4">
+                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-gray-100 bg-gray-100">
+                    <Image
+                      src={booth.logoUrl}
+                      alt={booth.university}
+                      fill
+                      className="object-cover"
+                      sizes="48px"
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="truncate text-lg font-bold text-[#11153F]">
+                      {booth.name}
+                    </p>
+                    <p className="truncate text-xs text-gray-500">
+                      {booth.university} · {booth.affiliation}
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-5 border-t border-gray-100 pt-4">
+                  <p className="font-mono text-xl font-bold text-[#11153F]">
+                    {booth.revenue}
+                    <span className="ml-1 text-xs font-medium text-gray-400">
+                      원
+                    </span>
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        <div className="mx-auto mt-14 max-w-3xl md:mt-20">
+        <div className="mt-14 md:mt-20">
           <div className="mb-5 flex items-center justify-between px-1">
-            <h2 className="firsty-title text-2xl">전체 랭킹</h2>
+            <h2 className="text-2xl font-bold tracking-tight text-[#11153F] md:text-3xl">
+              전체 랭킹
+            </h2>
             <span className="text-xs font-medium text-gray-400">
               실시간 업데이트
             </span>
@@ -149,7 +199,7 @@ export default function BoothRankingPage() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.3 }}
             className="firsty-card divide-y divide-gray-100 overflow-hidden p-2"
           >
             {others.map((booth) => (
@@ -158,11 +208,10 @@ export default function BoothRankingPage() {
                 className="flex items-center justify-between gap-4 rounded-2xl px-4 py-4 transition-colors hover:bg-gray-100 md:px-5"
               >
                 <div className="flex min-w-0 items-center gap-4">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gray-100 text-sm font-black text-gray-400">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-100 font-mono text-sm font-black text-gray-400">
                     {booth.rank}
                   </div>
-
-                  <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-gray-100 bg-gray-50">
+                  <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-gray-100 bg-gray-100">
                     <Image
                       src={booth.logoUrl}
                       alt={booth.university}
@@ -171,7 +220,6 @@ export default function BoothRankingPage() {
                       sizes="40px"
                     />
                   </div>
-
                   <div className="flex min-w-0 flex-col">
                     <span className="truncate text-sm font-bold text-[#11153F] md:text-base">
                       {booth.name}

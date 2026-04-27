@@ -38,8 +38,17 @@ const SOCIAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white pt-20 pb-10">
+    <footer className="w-full overflow-hidden bg-white pt-20 pb-10">
       <div className="firsty-container px-5 md:px-8">
+        <div className="mb-16 select-none">
+          <p
+            className="text-[19vw] font-bold leading-[0.9] tracking-tighter text-[#11153F] md:text-[15vw]"
+            style={{ letterSpacing: "-0.05em" }}
+          >
+            축제는 <span className="text-[#FFBF0B]">축제랑</span>
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 gap-10 border-b border-gray-200/60 pb-10 md:grid-cols-[1.4fr_1fr_1fr] md:gap-8">
           <div className="flex flex-col gap-5">
             <Link href="/" className="inline-flex items-center">

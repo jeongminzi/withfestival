@@ -37,75 +37,81 @@ export default function FrequentAskedQuestions() {
   return (
     <section className="relative w-full overflow-hidden bg-white pt-32 pb-24 md:pt-40 md:pb-32">
       <div className="firsty-container relative z-10 px-5 md:px-8">
-        <div className="mx-auto max-w-3xl">
-          <div className="mb-14 flex flex-col items-center text-center md:mb-20">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="firsty-display"
-            >
-              자주 묻는 질문
-            </motion.h2>
-            <p className="firsty-lead mt-5 max-w-xl">
-              더 궁금한 점은 도입 문의로 보내주세요
-            </p>
-          </div>
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-5">
+            <div className="lg:sticky lg:top-32">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="firsty-display"
+              >
+                자주 묻는
+                <br />
+                <span className="text-[#FFBF0B]">질문</span>
+              </motion.h2>
+              <p className="firsty-lead mt-6 max-w-md">
+                더 궁금한 점은 도입 문의로 보내주세요
+              </p>
 
-          <div className="firsty-card divide-y divide-gray-100 overflow-hidden">
-            {faqs.map((faq, index) => (
-              <details key={index} className="group">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 transition-colors hover:bg-gray-100 md:px-8 md:py-6">
-                  <div className="flex min-w-0 items-start gap-4">
-                    <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-100 font-mono text-xs font-bold text-gray-400 transition-colors group-open:bg-[#FFD43A] group-open:text-[#11153F]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="break-keep text-base font-bold leading-snug text-[#11153F] md:text-lg">
-                      {faq.q}
-                    </span>
-                  </div>
-                  <span className="shrink-0 text-gray-300 transition-all duration-300 group-open:rotate-180 group-open:text-[#11153F]">
-                    <svg
-                      width="22"
-                      height="22"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.2"
-                    >
-                      <path
-                        d="M6 9l6 6 6-6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="mt-10 rounded-3xl border border-gray-200 bg-white p-6 md:p-7"
+              >
+                <p className="break-keep text-sm leading-relaxed text-[#11153F]/80">
+                  <span className="mr-1 text-sm font-bold text-[#FFBF0B]">
+                    ※ 유의사항
                   </span>
-                </summary>
-
-                <div className="px-6 pb-6 md:px-8 md:pb-7">
-                  <div className="ml-11 break-keep text-sm leading-relaxed text-gray-500 md:text-base">
-                    {faq.a}
-                  </div>
-                </div>
-              </details>
-            ))}
+                  축제랑은 대학 축제 운영을 돕는 스마트 플랫폼이에요 각 부스에서
+                  이뤄지는 주류 판매 위생 관리 실 결제 과정의 법적 권한과 책임은
+                  운영 주체에게 있어요
+                </p>
+              </motion.div>
+            </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="mt-10 rounded-3xl border border-gray-200 bg-white p-6 md:p-7"
-          >
-            <p className="break-keep text-sm leading-relaxed text-[#11153F]/80">
-              <span className="mr-1 text-sm font-bold text-[#FFBF0B]">
-                ※ 유의사항
-              </span>
-              축제랑은 대학 축제 운영을 돕는 스마트 플랫폼이에요 각 부스에서
-              이뤄지는 주류 판매 위생 관리 실 결제 과정의 법적 권한과 책임은
-              운영 주체에게 있어요
-            </p>
-          </motion.div>
+          <div className="lg:col-span-7">
+            <div className="firsty-card divide-y divide-gray-100 overflow-hidden">
+              {faqs.map((faq, index) => (
+                <details key={index} className="group">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 transition-colors hover:bg-gray-100 md:px-8 md:py-6">
+                    <div className="flex min-w-0 items-start gap-4">
+                      <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-100 font-mono text-xs font-bold text-gray-400 transition-colors group-open:bg-[#FFD43A] group-open:text-[#11153F]">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="break-keep text-base font-bold leading-snug text-[#11153F] md:text-lg">
+                        {faq.q}
+                      </span>
+                    </div>
+                    <span className="shrink-0 text-gray-300 transition-all duration-300 group-open:rotate-45 group-open:text-[#11153F]">
+                      <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.2"
+                      >
+                        <path
+                          d="M12 5v14M5 12h14"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+
+                  <div className="px-6 pb-6 md:px-8 md:pb-7">
+                    <div className="ml-11 break-keep text-sm leading-relaxed text-gray-500 md:text-base">
+                      {faq.a}
+                    </div>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

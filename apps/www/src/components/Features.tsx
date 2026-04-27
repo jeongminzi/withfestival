@@ -8,28 +8,32 @@ const FEATURES = [
     title: "QR 메뉴판으로 주문 받기",
     description:
       "테이블 QR로 방문객이 직접 메뉴를 보고 주문해요 주문 누락도 대기 시간도 확 줄어요",
-    accent: "bg-white",
+    span: "lg:col-span-7 lg:row-span-2",
+    accent: "from-[#FFD43A]/35 via-[#FFD43A]/15 to-transparent",
   },
   {
     id: "digital-reservation",
     title: "디지털로 웨이팅 관리하기",
     description:
       "종이 명부 대신 스마트폰으로 웨이팅을 관리해요 입장 차례가 되면 메시지로 바로 알려요",
-    accent: "bg-white",
+    span: "lg:col-span-5",
+    accent: "from-[#11153F]/10 via-[#11153F]/3 to-transparent",
   },
   {
     id: "love-alarm",
     title: "좋아하면 울리는 기능",
     description:
-      "마음에 드는 테이블에 호감을 표현하고 합석도 제안해요 캠퍼스 축제만의 낭만과 재미를 더해줘요",
-    accent: "bg-white",
+      "마음에 드는 테이블에 호감을 표현하고 합석도 제안해요 캠퍼스 축제만의 낭만과 재미",
+    span: "lg:col-span-5",
+    accent: "from-[#FFD43A]/25 to-transparent",
   },
   {
     id: "ai-management",
     title: "AI가 메뉴판과 부스 세팅을 도와줘요",
     description:
-      "메뉴 이름만 입력하면 AI가 설명과 메뉴판을 자동으로 만들어줘요 부스 세팅도 1분이면 끝나요",
-    accent: "bg-white",
+      "메뉴 이름만 입력하면 AI가 설명과 메뉴판을 자동으로 만들어줘요 부스 세팅도 1분이면 끝",
+    span: "lg:col-span-12",
+    accent: "from-[#FFD43A]/20 via-transparent to-[#11153F]/10",
   },
 ];
 
@@ -37,18 +41,18 @@ export default function FeaturePromotion() {
   return (
     <section className="firsty-section relative w-full overflow-hidden bg-white">
       <div className="firsty-container">
-        <div className="mb-14 flex flex-col items-start md:mb-20 md:items-center md:text-center">
-          <h2 className="firsty-display max-w-3xl">
+        <div className="mb-14 flex flex-col items-start gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
+          <h2 className="firsty-display max-w-2xl">
             이런 축제 이런 행사에
             <br />
             <span className="text-[#FFBF0B]">딱이에요</span>
           </h2>
-          <p className="firsty-lead mt-5 max-w-2xl">
+          <p className="firsty-lead max-w-md md:text-right">
             부스 운영의 모든 순간을 가볍고 즐겁게
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-12 lg:auto-rows-fr">
           {FEATURES.map((feature, index) => (
             <motion.div
               key={feature.id}
@@ -56,20 +60,39 @@ export default function FeaturePromotion() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="firsty-card relative flex min-h-[340px] flex-col overflow-hidden p-7 md:min-h-[400px] md:p-9"
+              className={`firsty-card group relative flex min-h-[300px] flex-col overflow-hidden p-7 md:p-9 ${feature.span}`}
             >
-              <h3 className="text-2xl font-bold leading-tight tracking-tight text-[#11153F] md:text-[28px]">
-                {feature.title}
-              </h3>
-              <p className="mt-4 max-w-[90%] break-keep text-base leading-relaxed text-gray-500">
-                {feature.description}
-              </p>
+              <div
+                className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${feature.accent}`}
+              />
 
-              <div className="mt-8 flex flex-1 items-end">
-                <div
-                  className={`relative h-40 w-full overflow-hidden rounded-2xl ${feature.accent} border border-gray-100 md:h-52`}
-                >
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,#FFD43A22,transparent_60%)]" />
+              <div className="relative z-10 flex h-full flex-col">
+                <div className="flex flex-1 flex-col">
+                  <h3 className="text-2xl font-bold leading-tight tracking-tight text-[#11153F] md:text-[28px] lg:text-3xl">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-4 max-w-md break-keep text-base leading-relaxed text-gray-500 md:text-lg">
+                    {feature.description}
+                  </p>
+                </div>
+
+                <div className="mt-10 flex items-center gap-2 text-sm font-bold text-[#11153F] opacity-60 transition-opacity group-hover:opacity-100">
+                  자세히 보기
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    className="transition-transform group-hover:translate-x-1"
+                  >
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </div>
               </div>
             </motion.div>
