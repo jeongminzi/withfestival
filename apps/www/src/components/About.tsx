@@ -29,10 +29,9 @@ export default function About() {
             }}
             className="firsty-display max-w-4xl"
           >
-            복잡한 축제 운영은{" "}
-            <span className="text-[#FFBF0B]">가볍게,</span>
+            축제 운영은 <span className="text-[#FFBF0B]">가볍게</span>
             <br />
-            참여의 즐거움은 더 크게.
+            참여는 즐겁게
           </motion.h2>
 
           <motion.p
@@ -42,12 +41,9 @@ export default function About() {
             }}
             className="firsty-lead mt-6 max-w-3xl whitespace-pre-line"
           >
-            축제랑은 총학생회와 축제 기획단의 고민과 밤샘에서 시작했어요.
+            축제랑은 총학생회와 기획단의 고민에서 시작했어요
             {"\n"}
-            실시간 부스 웨이팅부터 방문객의 텐션을 올리는 랭킹 보드까지.
-            {"\n"}
-            가장 스마트한 운영 솔루션으로 모두가 온전히 즐길 수 있는 축제를
-            만들어요.
+            웨이팅부터 랭킹 보드까지 모두가 즐길 수 있는 축제를 만들어요
           </motion.p>
         </motion.div>
       </div>

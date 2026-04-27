@@ -26,9 +26,9 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="firsty-display max-w-4xl"
           >
-            축제를 <span className="text-[#FFBF0B]">더 재미있게,</span>
+            축제는 <span className="text-[#FFBF0B]">재미있게</span>
             <br />
-            추억이 더 빛나게.
+            추억은 빛나게
           </motion.h1>
 
           <motion.p
@@ -37,9 +37,9 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="firsty-lead mt-6 max-w-2xl"
           >
-            부스 예약부터 주문, 테이블 게임까지 한 번에 해결해요.
+            부스 예약부터 주문 테이블 게임까지 한 번에
             <br className="hidden md:block" />
-            축제랑과 함께 더 행복한 캠퍼스 추억을 만들어요.
+            축제랑과 더 행복한 캠퍼스 추억을 만들어요
           </motion.p>
 
           <motion.div

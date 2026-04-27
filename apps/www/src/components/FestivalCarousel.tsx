@@ -46,7 +46,7 @@ export default function FestivalCarousel({
           <h2 className="firsty-title md:text-[28px]">{title}</h2>
         </div>
         <span className="hidden text-sm text-gray-400 md:block">
-          좌우로 드래그하면 더 볼 수 있어요
+          좌우로 드래그해서 더 보기
         </span>
       </div>
 

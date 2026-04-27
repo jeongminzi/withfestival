@@ -9,9 +9,9 @@ const CASES = [
     univ: "K대학교",
     eventName: "가을 축제 주점",
     date: "2025. 09",
-    title: "수백 명이 몰려도 주문을 매끄럽게 처리해요",
+    title: "수백 명이 몰려도 주문은 매끄럽게",
     description:
-      "방문객은 자리에 앉아 QR코드로 메뉴를 담고 이체해요. 운영진은 태블릿 하나로 주문과 이체 내역을 확인하고 바로 조리를 시작해요. '번호팅' 같은 주점만의 특별한 이벤트를 메뉴판에 녹여서 방문객들의 호응도 폭발적이었어요.",
+      "방문객이 자리에서 QR로 메뉴를 담고 이체하면 운영진은 태블릿 하나로 바로 조리를 시작해요 ‘번호팅’ 같은 주점 이벤트를 메뉴판에 녹여 호응도 폭발적이었어요",
     tags: ["QR 전자메뉴판", "번호팅 이벤트 연동", "실시간 조리 관리"],
     imageUrl: "/images/cases/img_festival_2.png",
   },
@@ -20,9 +20,9 @@ const CASES = [
     univ: "G대학교",
     eventName: "동아리의 밤 연합 부스",
     date: "2025. 09",
-    title: "여러 단체가 모여도 정산과 관리는 하나처럼 매끄럽게",
+    title: "여러 단체가 모여도 관리는 하나처럼",
     description:
-      "산악부 등 여러 동아리가 연합해 운영하는 복잡한 환경에서도, 수기 장부나 종이 메뉴판 없이 스마트폰 하나로 주문을 깔끔하게 정리했어요. 선불 이체 확인부터 서빙 알림까지, 적은 인력으로도 운영을 매끄럽게 풀어낸 사례예요.",
+      "여러 동아리가 연합한 복잡한 환경에서도 종이 없이 스마트폰만으로 주문을 깔끔하게 정리했어요 적은 인력으로도 운영을 매끄럽게 풀어낸 사례예요",
     tags: ["연합 부스 운영", "선불 결제 자동화", "페이퍼리스"],
     imageUrl: "/images/cases/img_festival_1.jpeg",
   },
@@ -36,10 +36,10 @@ export default function FestivalCaseStudy() {
           <h2 className="firsty-display max-w-3xl">
             이미 다른 대학에서
             <br />
-            <span className="text-[#FFBF0B]">놀라운 변화</span>를 경험했어요.
+            <span className="text-[#FFBF0B]">놀라운 변화</span>를 경험했어요
           </h2>
           <p className="firsty-lead mt-5 max-w-2xl">
-            축제랑과 함께한 실제 캠퍼스 사례를 소개해요.
+            축제랑과 함께한 실제 캠퍼스 사례
           </p>
         </div>
 

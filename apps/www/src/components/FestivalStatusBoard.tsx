@@ -106,13 +106,12 @@ export default function FestivalStatusBoard() {
       <div className="firsty-container relative px-5 md:px-8">
         <div className="mb-14 flex flex-col items-center text-center md:mb-20">
           <h1 className="firsty-display max-w-3xl">
-            지금 이 순간,
+            지금 열리고 있는
             <br />
-            <span className="text-[#FFBF0B]">전국 대학 축제</span>가 열리고
-            있어요
+            <span className="text-[#FFBF0B]">전국 대학 축제</span>
           </h1>
           <p className="firsty-lead mt-5 max-w-xl">
-            축제랑과 함께하는 캠퍼스 축제를 한눈에 확인해요.
+            축제랑과 함께하는 캠퍼스 축제를 한눈에
           </p>
         </div>
 

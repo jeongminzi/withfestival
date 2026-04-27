@@ -86,7 +86,7 @@ export default function BoothRankingPage() {
             <span className="text-[#FFBF0B]">대학 부스 랭킹</span>
           </h1>
           <p className="firsty-lead mt-5 max-w-xl">
-            실시간 누적 매출로 랭킹을 매겨요.
+            실시간 누적 매출로 매기는 랭킹
           </p>
         </div>
 
@@ -142,7 +142,7 @@ export default function BoothRankingPage() {
           <div className="mb-5 flex items-center justify-between px-1">
             <h2 className="firsty-title text-2xl">전체 랭킹</h2>
             <span className="text-xs font-medium text-gray-400">
-              실시간으로 업데이트하고 있어요
+              실시간 업데이트
             </span>
           </div>
 
