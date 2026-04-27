@@ -34,7 +34,7 @@ const RANKING_DATA = [
     university: "홍익대",
     affiliation: "건축도시대학 총학생회",
     revenue: "1,120,000",
-    logoUrl: "/logos/hongik.png",
+    logoUrl: "/icons/univ/hongik.svg",
   },
   {
     rank: 5,
@@ -42,7 +42,7 @@ const RANKING_DATA = [
     university: "고려대",
     affiliation: "사범대학 체육교육과 학생회",
     revenue: "1,095,000",
-    logoUrl: "/logos/korea.png",
+    logoUrl: "/icons/univ/korea.svg",
   },
   {
     rank: 6,
@@ -50,7 +50,7 @@ const RANKING_DATA = [
     university: "서강대",
     affiliation: "자연과학부 연합",
     revenue: "980,000",
-    logoUrl: "/logos/sogang.png",
+    logoUrl: "/icons/univ/sogang.svg",
   },
   {
     rank: 7,
@@ -58,7 +58,7 @@ const RANKING_DATA = [
     university: "서울대",
     affiliation: "미술대학 조소과 학생회",
     revenue: "840,000",
-    logoUrl: "/logos/snu.png",
+    logoUrl: "/icons/univ/snu.svg",
   },
 ];
 
@@ -80,10 +80,6 @@ export default function BoothRankingPage() {
     <main className="relative w-full overflow-hidden bg-white pt-32 pb-24 md:pt-40 md:pb-32">
       <div className="firsty-container relative px-5 md:px-8">
         <div className="mb-14 flex flex-col items-center text-center md:mb-20">
-          <span className="firsty-eyebrow mb-5">
-            <span className="firsty-eyebrow-dot" />
-            Live Leaderboard
-          </span>
           <h1 className="firsty-display max-w-3xl">
             지금 가장 핫한
             <br />
@@ -108,13 +104,9 @@ export default function BoothRankingPage() {
               }`}
             >
               <span
-                className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] ${RANK_BADGE_TONE[index]}`}
+                className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-bold ${RANK_BADGE_TONE[index]}`}
               >
-                {booth.rank === 1
-                  ? "1ST · GOLD"
-                  : booth.rank === 2
-                    ? "2ND"
-                    : "3RD"}
+                {booth.rank}위
               </span>
 
               <div className="relative mt-3 mb-4 h-16 w-16 overflow-hidden rounded-full border border-gray-100 bg-gray-50 shadow-pill md:h-20 md:w-20">

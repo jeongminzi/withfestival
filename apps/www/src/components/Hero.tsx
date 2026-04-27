@@ -20,11 +20,6 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center text-center"
         >
-          <span className="firsty-eyebrow mb-6">
-            <span className="firsty-eyebrow-dot" />
-            올인원 스마트 축제 운영 솔루션
-          </span>
-
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}

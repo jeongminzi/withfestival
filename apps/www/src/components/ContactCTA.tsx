@@ -22,24 +22,13 @@ export default function ContactCTA() {
           }}
           className="firsty-card relative overflow-hidden bg-[#11153F] p-10 text-center md:p-16"
         >
-          <motion.span
-            variants={{
-              hidden: { opacity: 0, y: 12 },
-              show: { opacity: 1, y: 0 },
-            }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-white/80 backdrop-blur-md"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-[#FFD43A]" />
-            Get Started
-          </motion.span>
-
           <motion.h2
             variants={{
               hidden: { opacity: 0, y: 24 },
               show: { opacity: 1, y: 0 },
             }}
-            className="mx-auto mt-6 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-white md:text-5xl"
-            style={{ letterSpacing: "-0.02em" }}
+            className="mx-auto max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl"
+            style={{ letterSpacing: "-0.02em", lineHeight: 1.2 }}
           >
             성공적인 축제의 시작,
             <br />

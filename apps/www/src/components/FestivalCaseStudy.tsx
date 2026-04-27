@@ -33,10 +33,6 @@ export default function FestivalCaseStudy() {
     <section className="firsty-section relative w-full overflow-hidden bg-white">
       <div className="firsty-container">
         <div className="mb-14 flex flex-col items-center text-center md:mb-20">
-          <span className="firsty-eyebrow mb-5">
-            <span className="firsty-eyebrow-dot" />
-            Case Studies
-          </span>
           <h2 className="firsty-display max-w-3xl">
             이미 다른 대학에서
             <br />
@@ -70,8 +66,7 @@ export default function FestivalCaseStudy() {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute left-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[#11153F] shadow-pill backdrop-blur-md">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#FFBF0B]" />
+                  <div className="absolute left-5 top-5 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-[#11153F] shadow-pill backdrop-blur-md">
                     {item.date}
                   </div>
                 </div>

@@ -27,10 +27,6 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="flex flex-col items-center text-center"
           >
-            <span className="firsty-eyebrow mb-5">
-              <span className="firsty-eyebrow-dot" />
-              Contact
-            </span>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -61,11 +57,10 @@ export default function Contact() {
             className="firsty-card mt-14 overflow-hidden p-8 text-center md:p-12"
           >
             <div className="relative z-10">
-              <span className="firsty-eyebrow mb-4">
-                <span className="firsty-eyebrow-dot" />
-                Official Email
-              </span>
-              <h2 className="mt-4 break-all text-2xl font-bold tracking-tight text-[#11153F] selection:bg-[#FFD43A]/50 md:text-4xl">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-400">
+                대표 이메일
+              </p>
+              <h2 className="mt-3 break-all text-2xl font-bold tracking-tight text-[#11153F] selection:bg-[#FFD43A]/50 md:text-4xl">
                 {email}
               </h2>
 

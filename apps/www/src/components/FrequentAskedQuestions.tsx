@@ -39,15 +39,6 @@ export default function FrequentAskedQuestions() {
       <div className="firsty-container relative z-10 px-5 md:px-8">
         <div className="mx-auto max-w-3xl">
           <div className="mb-14 flex flex-col items-center text-center md:mb-20">
-            <motion.span
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="firsty-eyebrow mb-5"
-            >
-              <span className="firsty-eyebrow-dot" />
-              FAQ
-            </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

@@ -22,17 +22,6 @@ export default function About() {
           }}
           className="flex flex-col items-center text-center"
         >
-          <motion.span
-            variants={{
-              hidden: { opacity: 0, y: 16 },
-              show: { opacity: 1, y: 0 },
-            }}
-            className="firsty-eyebrow mb-5"
-          >
-            <span className="firsty-eyebrow-dot" />
-            About 축제랑
-          </motion.span>
-
           <motion.h2
             variants={{
               hidden: { opacity: 0, y: 24 },

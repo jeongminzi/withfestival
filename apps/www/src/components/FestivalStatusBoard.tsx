@@ -105,10 +105,6 @@ export default function FestivalStatusBoard() {
     <section className="relative w-full overflow-hidden bg-white pt-32 pb-24 md:pt-40 md:pb-32">
       <div className="firsty-container relative px-5 md:px-8">
         <div className="mb-14 flex flex-col items-center text-center md:mb-20">
-          <span className="firsty-eyebrow mb-5">
-            <span className="firsty-eyebrow-dot" />
-            2026 Festival Calendar
-          </span>
           <h1 className="firsty-display max-w-3xl">
             지금 이 순간,
             <br />
