@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-// 💡 익명화 및 정제된 도입 사례 데이터
 const CASES = [
   {
     id: "case-1",
@@ -31,37 +30,39 @@ const CASES = [
 
 export default function FestivalCaseStudy() {
   return (
-    <section className="w-full bg-white px-4 py-24 md:px-8">
-      <div className="mx-auto max-w-5xl">
-        {/* 🌟 헤더 영역 */}
-        <div className="mb-16 text-center md:mb-24">
-          <h2 className="text-3xl font-extrabold tracking-tight text-[#11153F] md:text-5xl">
+    <section className="firsty-section relative w-full overflow-hidden bg-white">
+      <div className="firsty-container">
+        <div className="mb-14 flex flex-col items-center text-center md:mb-20">
+          <span className="firsty-eyebrow mb-5">
+            <span className="firsty-eyebrow-dot" />
+            Case Studies
+          </span>
+          <h2 className="firsty-display max-w-3xl">
             이미 다른 대학에서
-            <br className="hidden md:block" />
-            <span className="text-[#FFBF0B]">놀라운 변화</span>를 경험했어요
+            <br />
+            <span className="text-[#FFBF0B]">놀라운 변화</span>를 경험했어요.
           </h2>
+          <p className="firsty-lead mt-5 max-w-2xl">
+            축제랑이 만들어낸 실제 캠퍼스 사례를 소개해드릴게요.
+          </p>
         </div>
 
-        {/* 🌟 도입 사례 리스트 (지그재그 카드 레이아웃) */}
-        <div className="flex flex-col gap-16 md:gap-24">
+        <div className="flex flex-col gap-12 md:gap-16">
           {CASES.map((item, index) => {
-            // 💡 짝수/홀수 인덱스에 따라 좌우 반전 여부 결정
             const isEven = index % 2 === 0;
 
             return (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                // 모바일은 flex-col(위아래), 데스크톱은 짝/홀수에 따라 flex-row 또는 flex-row-reverse(좌우 반전)
-                className={`flex flex-col overflow-hidden rounded-[32px] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] ${
+                className={`firsty-card flex flex-col overflow-hidden ${
                   isEven ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
-                {/* 📸 대형 이미지 영역 */}
-                <div className="relative h-64 w-full shrink-0 bg-gray-200 md:h-auto md:w-1/2">
+                <div className="relative h-72 w-full shrink-0 bg-gray-100 md:h-auto md:w-1/2">
                   <Image
                     src={item.imageUrl}
                     alt={`${item.univ} ${item.eventName}`}
@@ -69,33 +70,32 @@ export default function FestivalCaseStudy() {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-
-                  <div className="absolute left-6 top-6 rounded-full bg-black/40 px-4 py-1.5 text-sm font-bold text-white backdrop-blur-md">
+                  <div className="absolute left-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[#11153F] shadow-pill backdrop-blur-md">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#FFBF0B]" />
                     {item.date}
                   </div>
                 </div>
 
-                {/* 📝 텍스트 콘텐츠 영역 */}
-                <div className="flex flex-col justify-center p-8 md:w-1/2 md:p-12 lg:p-16">
-                  <div className="mb-4 flex items-center gap-2 text-sm font-bold text-[#FFBF0B] md:text-base">
+                <div className="flex flex-col justify-center p-7 md:w-1/2 md:p-12 lg:p-14">
+                  <div className="mb-5 flex items-center gap-2.5 text-sm font-bold text-[#FFBF0B]">
                     <span>{item.univ}</span>
                     <span className="h-3 w-[1px] bg-gray-300" />
                     <span>{item.eventName}</span>
                   </div>
 
-                  <h3 className="mb-4 break-keep text-2xl font-bold leading-tight text-[#11153F] md:text-3xl lg:text-4xl">
+                  <h3 className="break-keep text-2xl font-bold leading-tight tracking-tight text-[#11153F] md:text-3xl lg:text-[34px]">
                     {item.title}
                   </h3>
 
-                  <p className="mb-8 break-keep text-base leading-relaxed text-gray-500 md:text-lg">
+                  <p className="mt-5 break-keep text-base leading-relaxed text-gray-500 md:text-lg">
                     {item.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mt-auto">
+                  <div className="mt-7 flex flex-wrap gap-2">
                     {item.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-xl border border-gray-100 bg-[#F8F9FB] px-3 py-1.5 text-sm font-bold text-gray-600"
+                        className="inline-flex items-center rounded-full border border-gray-100 bg-[#F8F9FB] px-3 py-1.5 text-xs font-bold text-gray-600"
                       >
                         # {tag}
                       </span>

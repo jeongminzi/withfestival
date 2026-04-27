@@ -10,147 +10,112 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+const NAV_MENUS = [
+  { label: "축제랑 소개", href: "/about" },
+  { label: "부스 랭킹", href: "/ranking" },
+  { label: "자주 묻는 질문", href: "/faq" },
+];
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
-  // 🌟 스크롤 위치 감지
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsScrolled(latest > 50);
+    setIsScrolled(latest > 24);
   });
 
-  // 🌟 모바일 메뉴가 열렸을 때 배경 스크롤 방지
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
   }, [isMobileMenuOpen]);
-
-  // 💡 축제 전문 플랫폼에 맞는 네비게이션 워딩
-  const NAV_MENUS = [
-    { label: "축제랑 소개", href: "/about" },
-    { label: "부스 랭킹", href: "/ranking" },
-    { label: "자주 묻는 질문", href: "/faq" },
-  ];
-
-  const menuVariants = {
-    closed: {
-      y: "-100%",
-      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-    },
-    open: {
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const linkVariants = {
-    closed: { opacity: 0, y: 20 },
-    open: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", stiffness: 100, damping: 20 },
-    },
-  };
 
   return (
     <>
       <motion.header
-        initial={{
-          backgroundColor: "rgba(255, 255, 255, 0)",
-          backdropFilter: "blur(0px)",
-        }}
+        initial={{ paddingTop: 16, paddingBottom: 16 }}
         animate={{
-          backgroundColor:
-            isScrolled && !isMobileMenuOpen
-              ? "rgba(255, 255, 255, 0.85)"
-              : "rgba(255, 255, 255, 0)",
-          backdropFilter:
-            isScrolled && !isMobileMenuOpen ? "blur(12px)" : "blur(0px)",
-          borderBottom:
-            isScrolled && !isMobileMenuOpen
-              ? "1px solid rgba(220, 222, 227, 0.5)"
-              : "1px solid rgba(220, 222, 227, 0)",
+          paddingTop: isScrolled ? 10 : 16,
+          paddingBottom: isScrolled ? 10 : 16,
         }}
-        transition={{ duration: 0.3 }}
-        className="fixed inset-x-0 top-0 z-50 w-full transition-colors"
+        transition={{ duration: 0.25 }}
+        className="fixed inset-x-0 top-0 z-50 w-full"
       >
-        <div className="mx-auto flex w-full max-w-7xl items-center px-6 py-4 md:px-12">
-          {/* [영역 1] 왼쪽 (로고) */}
-          <div className="flex flex-1 items-center justify-start">
-            <Link
-              href="/"
-              className="relative z-50 flex items-center gap-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <Image
-                src="/images/img_logo_full.svg"
-                alt="WithFestival"
-                width={70}
-                height={70}
-                priority
-              />
-            </Link>
-          </div>
+        <motion.div
+          initial={false}
+          animate={{
+            backgroundColor:
+              isScrolled && !isMobileMenuOpen
+                ? "rgba(255, 255, 255, 0.85)"
+                : "rgba(255, 255, 255, 0)",
+            backdropFilter:
+              isScrolled && !isMobileMenuOpen ? "blur(16px)" : "blur(0px)",
+            borderColor:
+              isScrolled && !isMobileMenuOpen
+                ? "rgba(220, 222, 227, 0.6)"
+                : "rgba(220, 222, 227, 0)",
+          }}
+          transition={{ duration: 0.25 }}
+          className="mx-auto flex w-full max-w-6xl items-center justify-between rounded-full border px-5 py-2.5 md:px-6"
+        >
+          <Link
+            href="/"
+            className="relative z-50 flex items-center gap-2"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <Image
+              src="/images/img_logo_full.svg"
+              alt="WithFestival"
+              width={56}
+              height={56}
+              priority
+            />
+          </Link>
 
-          {/* [영역 2] 중앙 (메뉴) */}
-          <nav className="hidden shrink-0 items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-1 md:flex">
             {NAV_MENUS.map((menu) => (
               <Link
                 key={menu.label}
                 href={menu.href}
-                // 마우스 호버 시 딥 네이비 컬러로 포인트
-                className="text-body1-m text-gray-600 transition-colors hover:text-[#11153F]"
+                className="rounded-full px-4 py-2 text-sm font-medium text-gray-500 transition-all hover:bg-gray-100 hover:text-[#11153F]"
               >
                 {menu.label}
               </Link>
             ))}
           </nav>
 
-          {/* [영역 3] 오른쪽 (버튼) */}
-          <div className="flex flex-1 items-center justify-end">
-            <div className="hidden md:block">
-              <Link
-                href="/contact"
-                // 축제랑 메인 옐로우 컬러 + 딥 네이비 텍스트 적용
-                className="rounded-md bg-[#FFD43A] px-6 py-2 text-body2-sb text-[#11153F] shadow-sm transition-colors hover:bg-[#FFBF0B]"
-              >
-                문의하기
-              </Link>
-            </div>
+          <div className="flex items-center gap-2">
+            <Link
+              href="/contact"
+              className="hidden rounded-full bg-[#11153F] px-5 py-2.5 text-sm font-bold text-white shadow-pill transition-all hover:bg-[#1a2050] md:inline-flex"
+            >
+              도입 문의
+            </Link>
 
-            {/* 모바일 햄버거/닫기 버튼 */}
             <button
-              className={`relative z-50 p-2 md:hidden transition-colors ${isMobileMenuOpen ? "text-white" : "text-gray-800"}`}
+              type="button"
+              className={`relative z-50 rounded-full p-2 transition-colors md:hidden ${
+                isMobileMenuOpen ? "text-white" : "text-[#11153F]"
+              }`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="메뉴 열기"
             >
               <svg
-                width="24"
-                height="24"
+                width="22"
+                height="22"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="2.2"
               >
                 {isMobileMenuOpen ? (
-                  // 열렸을 땐 X 아이콘
                   <path
                     d="M18 6L6 18M6 6l12 12"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
                 ) : (
-                  // 닫혔을 땐 햄버거 아이콘
                   <path
-                    d="M4 6h16M4 12h16M4 18h16"
+                    d="M4 7h16M4 17h16"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
@@ -158,39 +123,47 @@ export default function Header() {
               </svg>
             </button>
           </div>
-        </div>
+        </motion.div>
       </motion.header>
 
-      {/* 🌟 모바일 풀스크린 네비게이션 메뉴 */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            variants={menuVariants}
-            initial="closed"
-            animate="open"
-            exit="closed"
-            // 브랜드 시그니처 딥 네이비 배경 적용
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
             className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-[#11153F] px-6"
           >
-            <nav className="flex flex-col items-center gap-8">
-              {NAV_MENUS.map((menu) => (
-                <motion.div key={menu.label} variants={linkVariants}>
+            <nav className="flex flex-col items-center gap-2">
+              {NAV_MENUS.map((menu, idx) => (
+                <motion.div
+                  key={menu.label}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + idx * 0.06 }}
+                >
                   <Link
                     href={menu.href}
-                    className="text-head1-b text-white transition-colors hover:text-[#FFD43A]"
+                    className="block rounded-full px-6 py-3 text-2xl font-bold text-white transition-colors hover:text-[#FFD43A]"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {menu.label}
                   </Link>
                 </motion.div>
               ))}
-              <motion.div variants={linkVariants} className="mt-8">
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="mt-6"
+              >
                 <Link
                   href="/contact"
-                  className="rounded-full bg-[#FFD43A] px-8 py-4 text-sub1-sb text-[#11153F] transition-colors hover:bg-[#FFBF0B]"
+                  className="rounded-full bg-[#FFD43A] px-7 py-3.5 text-base font-bold text-[#11153F] shadow-cta transition-colors hover:bg-[#FFBF0B]"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  문의하기
+                  도입 문의하기
                 </Link>
               </motion.div>
             </nav>

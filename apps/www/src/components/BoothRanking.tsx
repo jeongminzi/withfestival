@@ -62,136 +62,146 @@ const RANKING_DATA = [
   },
 ];
 
+const RANK_BADGE_TONE = [
+  "bg-[#FFD43A] text-[#11153F]",
+  "bg-[#11153F] text-white",
+  "bg-gray-100 text-gray-600",
+];
+
+function formatNumber(value: string) {
+  return value;
+}
+
 export default function BoothRankingPage() {
   const topThree = RANKING_DATA.slice(0, 3);
   const others = RANKING_DATA.slice(3);
 
-  const podiumOrder = [topThree[1], topThree[0], topThree[2]];
-
   return (
-    <main className="min-h-screen bg-white px-4 py-20 pb-24 md:px-8">
-      <div className="mb-12 text-center">
-        <h1 className="text-3xl font-bold text-primary-300 md:text-4xl">
-          실시간 대학 부스 랭킹
-        </h1>
-        <p className="mt-2 text-sm text-gray-500 md:text-base">
-          지금 가장 핫한 대학 부스는?
-        </p>
-      </div>
+    <main className="relative w-full overflow-hidden bg-white pt-32 pb-24 md:pt-40 md:pb-32">
+      <div className="firsty-container relative px-5 md:px-8">
+        <div className="mb-14 flex flex-col items-center text-center md:mb-20">
+          <span className="firsty-eyebrow mb-5">
+            <span className="firsty-eyebrow-dot" />
+            Live Leaderboard
+          </span>
+          <h1 className="firsty-display max-w-3xl">
+            지금 가장 핫한
+            <br />
+            <span className="text-[#FFBF0B]">대학 부스 랭킹</span>
+          </h1>
+          <p className="firsty-lead mt-5 max-w-xl">
+            실시간 누적 매출을 기준으로 랭킹이 자동 집계돼요.
+          </p>
+        </div>
 
-      {/* 🌟 명예의 전당 (Top 3 시상대) */}
-      <div className="mx-auto mb-16 flex max-w-3xl items-end justify-center gap-2 md:gap-6">
-        {podiumOrder.map((booth, index) => {
-          const isFirst = index === 1;
-          const isSecond = index === 0;
-          const heightClass = isFirst
-            ? "h-48 md:h-56"
-            : isSecond
-              ? "h-36 md:h-44"
-              : "h-28 md:h-36";
-          const bgColor = isFirst ? "bg-[#FFD43A]" : "bg-white";
-          const textColor = isFirst ? "text-[#11153F]" : "text-gray-800";
-
-          return (
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+          {topThree.map((booth, index) => (
             <motion.div
               key={booth.name}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: isFirst ? 0.2 : isSecond ? 0.4 : 0.6,
-                type: "spring",
-              }}
-              className="flex flex-1 flex-col items-center"
+              transition={{ delay: 0.1 + index * 0.08, type: "spring" }}
+              className={`firsty-card relative flex flex-col items-center p-6 text-center md:p-8 ${
+                booth.rank === 1
+                  ? "md:-translate-y-4 border-[#FFD43A]/40 shadow-card-hover"
+                  : ""
+              }`}
             >
-              {/* 대학교 로고 & 매출액 */}
-              <div className="mb-3 flex flex-col items-center">
-                <div className="relative mb-2 h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-white bg-gray-100 shadow-sm md:h-16 md:w-16">
-                  <Image
-                    src={booth.logoUrl}
-                    alt={booth.university}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 48px, 64px"
-                  />
-                </div>
-                <span className="mt-1 text-xs font-bold text-gray-600 md:text-sm">
-                  {booth.revenue}원
-                </span>
+              <span
+                className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] ${RANK_BADGE_TONE[index]}`}
+              >
+                {booth.rank === 1
+                  ? "1ST · GOLD"
+                  : booth.rank === 2
+                    ? "2ND"
+                    : "3RD"}
+              </span>
+
+              <div className="relative mt-3 mb-4 h-16 w-16 overflow-hidden rounded-full border border-gray-100 bg-gray-50 shadow-pill md:h-20 md:w-20">
+                <Image
+                  src={booth.logoUrl}
+                  alt={booth.university}
+                  fill
+                  className="object-cover"
+                  sizes="80px"
+                />
               </div>
 
-              {/* 시상대 블록 */}
-              <div
-                className={`flex w-full flex-col items-center justify-start rounded-t-2xl border border-gray-100 p-3 shadow-lg ${heightClass} ${bgColor}`}
-              >
-                <span className={`text-2xl font-black opacity-30 ${textColor}`}>
-                  {booth.rank}
-                </span>
+              <h3 className="text-lg font-bold tracking-tight text-[#11153F] md:text-xl">
+                {booth.name}
+              </h3>
+              <p className="mt-1.5 break-keep text-sm text-gray-500">
+                {booth.university} · {booth.affiliation}
+              </p>
 
-                {/* 부스 이름 및 소속 */}
-                <div className="mt-2 flex flex-col items-center justify-center">
-                  <span
-                    className={`text-center text-sm font-bold leading-tight md:text-base ${textColor}`}
-                  >
-                    {booth.name}
-                  </span>
-                  <span
-                    className={`mt-1 break-keep text-center text-[10px] font-medium md:text-xs ${isFirst ? "text-[#11153F]/70" : "text-gray-500"}`}
-                  >
-                    {booth.university} {booth.affiliation}
-                  </span>
-                </div>
+              <div className="mt-5 flex w-full items-center justify-center rounded-2xl bg-[#F8F9FB] px-4 py-3">
+                <span className="font-mono text-base font-bold text-[#11153F] md:text-lg">
+                  {formatNumber(booth.revenue)}
+                </span>
+                <span className="ml-1 text-sm font-medium text-gray-500">
+                  원
+                </span>
               </div>
             </motion.div>
-          );
-        })}
-      </div>
-
-      {/* 🌟 4위 이하 리스트 */}
-      <div className="mx-auto max-w-2xl">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="flex flex-col gap-3"
-        >
-          {others.map((booth) => (
-            <div
-              key={booth.name}
-              className="flex items-center justify-between rounded-xl bg-white p-4 shadow-[0_2px_8px_rgba(17,21,63,0.04)] transition-transform hover:scale-[1.02]"
-            >
-              <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-50 font-black text-gray-400">
-                  {booth.rank}
-                </div>
-
-                {/* 리스트 내 대학교 로고 */}
-                <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-gray-100 bg-gray-50">
-                  <Image
-                    src={booth.logoUrl}
-                    alt={booth.university}
-                    fill
-                    className="object-cover"
-                    sizes="40px"
-                  />
-                </div>
-
-                {/* 부스 이름 및 소속 */}
-                <div className="flex flex-col">
-                  <span className="text-sm font-bold text-[#11153F] md:text-base">
-                    {booth.name}
-                  </span>
-                  <span className="mt-0.5 text-xs text-gray-500 md:text-sm">
-                    {booth.university} {booth.affiliation}
-                  </span>
-                </div>
-              </div>
-              <span className="font-mono text-sm font-bold text-[#FFD43A] md:text-base">
-                {booth.revenue}원
-              </span>
-            </div>
           ))}
-        </motion.div>
+        </div>
+
+        <div className="mx-auto mt-14 max-w-3xl md:mt-20">
+          <div className="mb-5 flex items-center justify-between px-1">
+            <h2 className="firsty-title text-2xl">전체 랭킹</h2>
+            <span className="text-xs font-medium text-gray-400">
+              실시간 업데이트 중
+            </span>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="firsty-card divide-y divide-gray-100 overflow-hidden p-2"
+          >
+            {others.map((booth) => (
+              <div
+                key={booth.name}
+                className="flex items-center justify-between gap-4 rounded-2xl px-4 py-4 transition-colors hover:bg-[#F8F9FB] md:px-5"
+              >
+                <div className="flex min-w-0 items-center gap-4">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F8F9FB] text-sm font-black text-gray-400">
+                    {booth.rank}
+                  </div>
+
+                  <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-gray-100 bg-gray-50">
+                    <Image
+                      src={booth.logoUrl}
+                      alt={booth.university}
+                      fill
+                      className="object-cover"
+                      sizes="40px"
+                    />
+                  </div>
+
+                  <div className="flex min-w-0 flex-col">
+                    <span className="truncate text-sm font-bold text-[#11153F] md:text-base">
+                      {booth.name}
+                    </span>
+                    <span className="mt-0.5 truncate text-xs text-gray-500 md:text-sm">
+                      {booth.university} · {booth.affiliation}
+                    </span>
+                  </div>
+                </div>
+                <span className="shrink-0 font-mono text-sm font-bold text-[#11153F] md:text-base">
+                  {booth.revenue}
+                  <span className="ml-0.5 font-sans text-xs font-medium text-gray-400">
+                    원
+                  </span>
+                </span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </div>
+
+      <div className="pointer-events-none absolute -right-24 top-1/3 -z-0 h-[440px] w-[440px] rounded-full bg-[#FFD43A]/12 blur-[140px]" />
     </main>
   );
 }

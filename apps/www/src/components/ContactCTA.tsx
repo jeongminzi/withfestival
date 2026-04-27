@@ -3,87 +3,100 @@
 import { motion } from "framer-motion";
 
 export default function ContactCTA() {
-  // 🌟 애니메이션 설계도 (Variants)
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 25,
-        stiffness: 100,
-      },
-    },
-  };
-
   return (
     <section
       id="contact-cta"
-      className="relative w-full flex flex-col items-center justify-center overflow-hidden bg-white py-24 md:py-32"
+      className="firsty-section relative w-full overflow-hidden bg-[#F8F9FB]"
     >
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.5 }}
-        className="text-center z-10 px-6 max-w-7xl mx-auto"
-      >
-        {/* 타이틀 영역 */}
-        <div className="overflow-hidden mb-5">
+      <div className="firsty-container">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+            },
+          }}
+          className="firsty-card relative overflow-hidden bg-[#11153F] p-10 text-center md:p-16"
+        >
+          <motion.span
+            variants={{
+              hidden: { opacity: 0, y: 12 },
+              show: { opacity: 1, y: 0 },
+            }}
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-white/80 backdrop-blur-md"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-[#FFD43A]" />
+            Get Started
+          </motion.span>
+
           <motion.h2
-            variants={item}
-            className="text-3xl md:text-5xl font-bold text-[#11153F] tracking-tighter"
+            variants={{
+              hidden: { opacity: 0, y: 24 },
+              show: { opacity: 1, y: 0 },
+            }}
+            className="mx-auto mt-6 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-white md:text-5xl"
+            style={{ letterSpacing: "-0.02em" }}
           >
             성공적인 축제의 시작,
+            <br />
+            <span className="text-[#FFD43A]">축제랑</span>과 함께 완성하세요.
           </motion.h2>
-        </div>
 
-        <div className="overflow-hidden mb-12">
-          <motion.h2
-            variants={item}
-            className="text-3xl md:text-5xl font-bold text-[#11153F] tracking-tighter"
+          <motion.p
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              show: { opacity: 1, y: 0 },
+            }}
+            className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg"
           >
-            <span className="text-[#FFBF0B]">축제랑</span>과 함께 완성하세요.
-          </motion.h2>
-        </div>
+            도입 견적부터 맞춤형 기능 개발 상담까지.
+            <br className="hidden md:block" />
+            기획단의 무거운 짐을 덜고 추억을 만들어드립니다.
+          </motion.p>
 
-        {/* 서브 텍스트 */}
-        <motion.p
-          variants={item}
-          className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed whitespace-pre-line"
-        >
-          도입 견적부터 맞춤형 기능 개발 상담까지.
-          <br />
-          기획단의 무거운 짐을 덜고 추억을 만들어드립니다 !
-          <br />
-          지금 바로 문의하고 가장 스마트한 축제를 준비해 보세요.
-        </motion.p>
-
-        {/* 액션 버튼 */}
-        <motion.div variants={item}>
-          <a
-            href="mailto:info@u.lento25@gmail.com"
-            className="inline-flex items-center justify-center rounded-2xl bg-[#11153F] px-10 py-4 text-base font-bold text-white shadow-lg transition-transform hover:scale-105 md:text-lg"
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 16 },
+              show: { opacity: 1, y: 0 },
+            }}
+            className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
           >
-            도입 문의하기
-          </a>
+            <a
+              href="mailto:u.lento25@gmail.com"
+              className="firsty-cta-yellow"
+            >
+              도입 문의하기
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+            <a
+              href="/about"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-bold text-white transition-all hover:bg-white/10 md:text-base"
+            >
+              서비스 더 알아보기
+            </a>
+          </motion.div>
+
+          <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-[#FFD43A]/25 blur-[120px]" />
+          <div className="pointer-events-none absolute -top-24 -left-24 h-64 w-64 rounded-full bg-[#FFD43A]/15 blur-[120px]" />
         </motion.div>
-      </motion.div>
-
-      {/* 배경 장식 */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FFD43A]/10 rounded-full blur-[120px] -z-10 pointer-events-none" />
+      </div>
     </section>
   );
 }

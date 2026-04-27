@@ -1,3 +1,52 @@
 @import "tailwindcss";
 @plugin "tailwindcss-animate";
 @import "@repo/tailwind-config/theme.css";
+
+@theme {
+  --shadow-card: 0 4px 24px rgba(17, 21, 63, 0.04);
+  --shadow-card-hover: 0 12px 40px rgba(17, 21, 63, 0.08);
+  --shadow-cta: 0 8px 24px rgba(17, 21, 63, 0.12);
+  --shadow-pill: 0 1px 2px rgba(17, 21, 63, 0.04);
+}
+
+@layer components {
+  .firsty-section {
+    @apply px-5 py-20 md:px-8 md:py-28;
+  }
+  .firsty-container {
+    @apply mx-auto w-full max-w-6xl;
+  }
+  .firsty-eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-gray-100 bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500 shadow-pill;
+  }
+  .firsty-eyebrow-dot {
+    @apply h-1.5 w-1.5 rounded-full bg-[#FFBF0B];
+  }
+  .firsty-display {
+    @apply text-4xl font-bold tracking-tight text-[#11153F] md:text-5xl lg:text-6xl;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+  .firsty-title {
+    @apply text-3xl font-bold tracking-tight text-[#11153F] md:text-4xl;
+    letter-spacing: -0.02em;
+  }
+  .firsty-lead {
+    @apply text-base leading-relaxed text-gray-500 md:text-lg;
+  }
+  .firsty-card {
+    @apply rounded-3xl border border-gray-100 bg-white shadow-card transition-all duration-300;
+  }
+  .firsty-card:hover {
+    @apply shadow-card-hover;
+  }
+  .firsty-cta {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#11153F] px-6 py-3 text-sm font-bold text-white shadow-cta transition-all hover:bg-[#1a2050] md:text-base;
+  }
+  .firsty-cta-yellow {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#FFD43A] px-6 py-3 text-sm font-bold text-[#11153F] shadow-cta transition-all hover:bg-[#FFBF0B] md:text-base;
+  }
+  .firsty-cta-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-6 py-3 text-sm font-bold text-[#11153F] transition-all hover:border-[#11153F] md:text-base;
+  }
+}

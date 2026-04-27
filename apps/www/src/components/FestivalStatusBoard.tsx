@@ -102,18 +102,48 @@ const FESTIVALS = {
 
 export default function FestivalStatusBoard() {
   return (
-    <section className="w-full bg-[#F8F9FB] py-16">
-      <div className="mx-auto mb-10 max-w-7xl px-4 md:px-8">
-        <h1 className="text-3xl font-bold text-[#11153F] md:text-4xl">
-          2026 진행하는 대학 축제들 !
-        </h1>
+    <section className="relative w-full overflow-hidden bg-white pt-32 pb-24 md:pt-40 md:pb-32">
+      <div className="firsty-container relative px-5 md:px-8">
+        <div className="mb-14 flex flex-col items-center text-center md:mb-20">
+          <span className="firsty-eyebrow mb-5">
+            <span className="firsty-eyebrow-dot" />
+            2026 Festival Calendar
+          </span>
+          <h1 className="firsty-display max-w-3xl">
+            지금 이 순간,
+            <br />
+            <span className="text-[#FFBF0B]">전국 대학 축제</span>가 열리고
+            있어요
+          </h1>
+          <p className="firsty-lead mt-5 max-w-xl">
+            축제랑과 함께 진행 중이거나 앞으로 만나볼 캠퍼스 축제를 한 눈에
+            확인해 보세요.
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-16 md:gap-20">
+          <FestivalCarousel
+            title="진행 중인 축제"
+            badge="LIVE"
+            badgeTone="live"
+            data={FESTIVALS.ongoing}
+          />
+          <FestivalCarousel
+            title="진행 예정인 축제"
+            badge="UPCOMING"
+            badgeTone="upcoming"
+            data={FESTIVALS.upcoming}
+          />
+          <FestivalCarousel
+            title="끝난 축제"
+            badge="CLOSED"
+            badgeTone="closed"
+            data={FESTIVALS.ended}
+          />
+        </div>
       </div>
 
-      <div className="mx-auto max-w-7xl">
-        <FestivalCarousel title="진행 중인 축제" data={FESTIVALS.ongoing} />
-        <FestivalCarousel title="진행 예정인 축제" data={FESTIVALS.upcoming} />
-        <FestivalCarousel title="끝난 축제" data={FESTIVALS.ended} />
-      </div>
+      <div className="pointer-events-none absolute -left-24 top-1/4 -z-0 h-[440px] w-[440px] rounded-full bg-[#FFD43A]/12 blur-[140px]" />
     </section>
   );
 }

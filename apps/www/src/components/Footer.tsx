@@ -7,16 +7,23 @@ const LEGAL_LINKS = [
   { label: "사업자정보확인", href: "/business-info", isBold: false },
 ];
 
+const PRODUCT_LINKS = [
+  { label: "축제랑 소개", href: "/about" },
+  { label: "부스 랭킹", href: "/ranking" },
+  { label: "자주 묻는 질문", href: "/faq" },
+  { label: "도입 문의", href: "/contact" },
+];
+
 const SOCIAL_LINKS = [
   {
     label: "Instagram",
     href: "https://www.instagram.com/with.festival?igsh=MXJlY2tmc2lwMDg0cQ==",
     icon: (
       <Image
-        src={"/icons/ic_instagram.png"}
-        alt="insta"
-        width={25}
-        height={25}
+        src="/icons/ic_instagram.png"
+        alt="Instagram"
+        width={20}
+        height={20}
       />
     ),
   },
@@ -24,67 +31,106 @@ const SOCIAL_LINKS = [
     label: "Github",
     href: "https://github.com/orgs/Sikdorang/repositories",
     icon: (
-      <Image src={"/icons/ic_github.png"} alt="insta" width={25} height={25} />
+      <Image src="/icons/ic_github.png" alt="Github" width={20} height={20} />
     ),
   },
 ];
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white py-10 md:py-16 border-t border-gray-100">
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-6 md:px-12">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-          {/* 1. 약관 및 정책 링크 */}
-          <nav className="flex flex-wrap items-center gap-6">
-            {LEGAL_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className={`text-sm text-gray-600 underline underline-offset-4 transition-colors hover:text-gray-900 ${
-                  link.isBold ? "font-bold" : "font-medium"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+    <footer className="w-full bg-[#F8F9FB] pt-20 pb-10">
+      <div className="firsty-container px-5 md:px-8">
+        <div className="grid grid-cols-1 gap-10 border-b border-gray-200/60 pb-10 md:grid-cols-[1.4fr_1fr_1fr] md:gap-8">
+          <div className="flex flex-col gap-5">
+            <Link href="/" className="inline-flex items-center">
+              <Image
+                src="/images/img_logo_full.svg"
+                alt="WithFestival"
+                width={64}
+                height={64}
+              />
+            </Link>
+            <p className="max-w-sm break-keep text-sm leading-relaxed text-gray-500">
+              가장 스마트한 축제 운영 솔루션, 축제랑.
+              <br />
+              모두가 온전히 즐길 수 있는 진짜 축제를 만듭니다.
+            </p>
+            <div className="flex items-center gap-2">
+              {SOCIAL_LINKS.map((social) => (
+                <Link
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white transition-all hover:border-[#11153F] hover:shadow-pill"
+                  aria-label={social.label}
+                >
+                  {social.icon}
+                </Link>
+              ))}
+            </div>
+          </div>
 
-          {/* 2. SNS 아이콘 링크 섹션 추가 */}
-          <div className="flex items-center gap-4">
-            {SOCIAL_LINKS.map((social) => (
-              <Link
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 text-gray-400 transition-colors hover:text-gray-900 hover:bg-gray-100 rounded-full"
-                aria-label={social.label}
-              >
-                {social.icon}
-              </Link>
-            ))}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-gray-400">
+              Product
+            </h3>
+            <ul className="mt-4 space-y-3">
+              {PRODUCT_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm font-medium text-gray-600 transition-colors hover:text-[#11153F]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-gray-400">
+              Legal
+            </h3>
+            <ul className="mt-4 space-y-3">
+              {LEGAL_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className={`text-sm transition-colors hover:text-[#11153F] ${
+                      link.isBold
+                        ? "font-bold text-[#11153F]"
+                        : "font-medium text-gray-600"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        {/* 3. 사업자 정보 */}
-        <address className="flex flex-col gap-2 font-normal not-italic text-sm text-gray-400 break-keep">
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <span>축제랑</span>
-            <span>서울특별시 성동구</span>
-            <span>사업자등록번호: 111-11-111111</span>
-            <span>통신판매업 신고번호: 어쩌구 </span>
-          </div>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <span>대표자: 전XX</span>
-            <span>고객센터: 010-1234-1234</span>
-            <span>대표이메일: u.lento25@gmail.com</span>
-          </div>
-        </address>
+        <div className="mt-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <address className="not-italic">
+            <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-gray-400">
+              <span className="font-bold text-gray-500">축제랑</span>
+              <span>서울특별시 성동구</span>
+              <span>사업자등록번호 111-11-111111</span>
+              <span>통신판매업 신고번호: 어쩌구</span>
+            </div>
+            <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-gray-400">
+              <span>대표 전XX</span>
+              <span>고객센터 010-1234-1234</span>
+              <span>대표이메일 u.lento25@gmail.com</span>
+            </div>
+          </address>
 
-        {/* 4. 저작권 표기 */}
-        <p className="text-sm text-gray-400 mt-2">
-          &copy; WithFestival. ALL RIGHTS RESERVED.
-        </p>
+          <p className="text-xs text-gray-400">
+            © {new Date().getFullYear()} WithFestival. ALL RIGHTS RESERVED.
+          </p>
+        </div>
       </div>
     </footer>
   );
